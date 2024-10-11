@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom';
 const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post('/books', { title, author });
-      history.push('/');
+      navigate('/');
       // Redirect or show success message after adding a book
     } catch (error) {
       console.error('Error adding book:', error);

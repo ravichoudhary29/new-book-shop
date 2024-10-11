@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'; // if using react-router for nav
 
 const BookTable = () => {
   const [books, setBooks] = useState([]);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   // Fetch books from the API
   const fetchBooks = async () => {
@@ -32,18 +32,18 @@ const BookTable = () => {
 
   // Navigate to edit page
   const handleEdit = (id) => {
-    history.push(`/edit/${id}`); // Navigate to the edit page
+    navigate(`/edit/${id}`); // Navigate to the edit page
   };
 
   // Navigate to view page
   const handleView = (id) => {
-    history.push(`/book/${id}`); // Navigate to the view page
+    navigate(`/book/${id}`); // Navigate to the view page
   };
 
   return (
     <div>
       <h1>Books</h1>
-      <button onClick={() => history.push('/add')}>Create Book</button> {/* Button to create a new book */}
+      <button onClick={() => navigate('/add')}>Create Book</button> {/* Button to create a new book */}
       {books.length===0?(<h2>No books found</h2>):(<table>
         <thead>
           <tr>

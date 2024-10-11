@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const ViewBook = () => {
   const { id } = useParams(); // Get the book ID from the URL
-  const history = useNavigate(); // For navigation
+  const navigate = useNavigate(); // For navigation
   const [book, setBook] = useState(null);
 
   // Fetch the book details when the component mounts
@@ -24,7 +24,7 @@ const ViewBook = () => {
 
   // Handle back button click
   const handleBack = () => {
-    history.push('/'); // Redirect to the book list
+    navigate('/'); // Redirect to the book list
   };
 
   if (!book) return <p>Loading...</p>; // Show loading while fetching

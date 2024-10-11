@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const EditBook = () => {
   const { id } = useParams(); // Get the book ID from the URL
-  const history = useNavigate(); // For navigation
+  const navigate = useNavigate(); // For navigation
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
@@ -30,7 +30,7 @@ const EditBook = () => {
     e.preventDefault();
     try {
       await axios.put(`/books/${id}`, { title, author });
-      history.push('/'); // Redirect to the book list after editing
+      navigate('/'); // Redirect to the book list after editing
     } catch (error) {
       console.error('Error updating book:', error);
     }
